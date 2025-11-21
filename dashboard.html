@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Smart Learn</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span class="logo-text">Smart Learn</span>
+            </div>
+            <button class="sidebar-close-btn" id="sidebarToggle">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item active" title="Dashboard">
+                <i class="fas fa-home"></i>
+                <span class="nav-text">Dashboard</span>
+            </a>
+            <a href="notes.html" class="nav-item" title="Notes & Books">
+                <i class="fas fa-book"></i>
+                <span class="nav-text">Notes & Books</span>
+            </a>
+            <a href="discussion.html" class="nav-item" title="Discussion Rooms">
+                <i class="fas fa-comments"></i>
+                <span class="nav-text">Discussion Rooms</span>
+            </a>
+            <a href="ai-helper.html" class="nav-item" title="AI Helper">
+                <i class="fas fa-robot"></i>
+                <span class="nav-text">AI Helper</span>
+            </a>
+            <a href="deadlines.html" class="nav-item" title="Deadlines">
+                <i class="fas fa-bell"></i>
+                <span class="nav-text">Deadlines</span>
+            </a>
+            <a href="exam-prediction.html" class="nav-item" title="Exam Prediction">
+                <i class="fas fa-chart-line"></i>
+                <span class="nav-text">Exam Prediction</span>
+            </a>
+            <a href="collaboration.html" class="nav-item" title="Study Group">
+                <i class="fas fa-users"></i>
+                <span class="nav-text">Study Group</span>
+            </a>
+            <a href="profile.html" class="nav-item" title="Profile">
+                <i class="fas fa-user"></i>
+                <span class="nav-text">Profile</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="index.html" class="nav-item" title="Logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span class="nav-text">Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="search-box ai-search-box">
+                    <i class="fas fa-robot"></i>
+                    <input type="text" id="aiSearchInput" placeholder="Ask AI or search notes, discussions, and more...">
+                    <button class="ai-search-btn" title="AI Search">
+                        <i class="fas fa-magic"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="topbar-right">
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+                <div class="user-menu" id="userMenu">
+                    <img src="https://ui-avatars.com/api/?name=Student&background=6366f1&color=fff" alt="User" class="user-avatar">
+                    <span class="user-name">Student</span>
+                    <i class="fas fa-chevron-down"></i>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="dropdown-header">
+                            <img src="https://ui-avatars.com/api/?name=Student&background=6366f1&color=fff" alt="User" class="dropdown-avatar">
+                            <div>
+                                <h4>John Doe</h4>
+                                <p>john.doe@student.edu</p>
+                            </div>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a href="profile.html" class="dropdown-item">
+                            <i class="fas fa-user"></i>
+                            <span>My Profile</span>
+                        </a>
+                        <a href="notes.html" class="dropdown-item">
+                            <i class="fas fa-book"></i>
+                            <span>My Notes</span>
+                        </a>
+                        <a href="deadlines.html" class="dropdown-item">
+                            <i class="fas fa-calendar"></i>
+                            <span>My Deadlines</span>
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="index.html" class="dropdown-item logout">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <div class="welcome-card animate-on-scroll">
+                    <div class="welcome-content">
+                        <h1>Welcome back, Student! 👋</h1>
+                        <p>Ready to continue your learning journey?</p>
+                    </div>
+                    <div class="welcome-stats">
+                        <div class="stat-item stagger-item">
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">Active Notes</div>
+                        </div>
+                        <div class="stat-item stagger-item">
+                            <div class="stat-value">5</div>
+                            <div class="stat-label">Discussion Rooms</div>
+                        </div>
+                        <div class="stat-item stagger-item">
+                            <div class="stat-value">3</div>
+                            <div class="stat-label">Upcoming Deadlines</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="quick-actions">
+                <h2 class="section-title animate-on-scroll">Quick Actions</h2>
+                <div class="actions-grid">
+                    <a href="notes.html" class="action-card stagger-item">
+                        <div class="action-icon upload">
+                            <i class="fas fa-upload"></i>
+                        </div>
+                        <h3>Upload Notes</h3>
+                        <p>Share your study materials</p>
+                    </a>
+                    <a href="discussion.html" class="action-card stagger-item">
+                        <div class="action-icon discussion">
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <h3>Create Room</h3>
+                        <p>Start a new discussion</p>
+                    </a>
+                    <a href="ai-helper.html" class="action-card stagger-item">
+                        <div class="action-icon ai">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <h3>Ask AI</h3>
+                        <p>Get instant help</p>
+                    </a>
+                    <a href="deadlines.html" class="action-card stagger-item">
+                        <div class="action-icon deadline">
+                            <i class="fas fa-calendar-plus"></i>
+                        </div>
+                        <h3>Add Deadline</h3>
+                        <p>Set a reminder</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Recent Activity -->
+            <section class="recent-activity">
+                <h2 class="section-title animate-on-scroll">Recent Activity</h2>
+                <div class="activity-list">
+                    <div class="activity-item stagger-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Uploaded "Mathematics Notes"</h4>
+                            <p>2 hours ago</p>
+                        </div>
+                    </div>
+                    <div class="activity-item stagger-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Joined "Physics Discussion"</h4>
+                            <p>5 hours ago</p>
+                        </div>
+                    </div>
+                    <div class="activity-item stagger-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Asked AI about Calculus</h4>
+                            <p>1 day ago</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Upcoming Deadlines -->
+            <section class="upcoming-deadlines">
+                <h2 class="section-title animate-on-scroll">Upcoming Deadlines</h2>
+                <div class="deadlines-list">
+                    <div class="deadline-item urgent stagger-item">
+                        <div class="deadline-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="deadline-content">
+                            <h4>Math Assignment</h4>
+                            <p>Due in 2 days</p>
+                        </div>
+                        <div class="deadline-action">
+                            <button class="btn btn-sm">View</button>
+                        </div>
+                    </div>
+                    <div class="deadline-item stagger-item">
+                        <div class="deadline-icon">
+                            <i class="fas fa-calendar"></i>
+                        </div>
+                        <div class="deadline-content">
+                            <h4>Physics Exam</h4>
+                            <p>Due in 5 days</p>
+                        </div>
+                        <div class="deadline-action">
+                            <button class="btn btn-sm">View</button>
+                        </div>
+                    </div>
+                    <div class="deadline-item stagger-item">
+                        <div class="deadline-icon">
+                            <i class="fas fa-calendar"></i>
+                        </div>
+                        <div class="deadline-content">
+                            <h4>Chemistry Project</h4>
+                            <p>Due in 1 week</p>
+                        </div>
+                        <div class="deadline-action">
+                            <button class="btn btn-sm">View</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Additional Content for Long Scroll -->
+            <section class="study-tips">
+                <h2 class="section-title animate-on-scroll">Study Tips</h2>
+                <div class="tips-grid">
+                    <div class="tip-card stagger-item">
+                        <div class="tip-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Active Recall</h3>
+                        <p>Test yourself regularly instead of just re-reading notes. This strengthens memory retention.</p>
+                    </div>
+                    <div class="tip-card stagger-item">
+                        <div class="tip-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Pomodoro Technique</h3>
+                        <p>Study in 25-minute focused sessions with 5-minute breaks to maintain productivity.</p>
+                    </div>
+                    <div class="tip-card stagger-item">
+                        <div class="tip-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Study Groups</h3>
+                        <p>Join discussion rooms to explain concepts to others - teaching reinforces learning.</p>
+                    </div>
+                    <div class="tip-card stagger-item">
+                        <div class="tip-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3>Spaced Repetition</h3>
+                        <p>Review material at increasing intervals to improve long-term retention.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Notes Preview -->
+            <section class="recent-notes">
+                <h2 class="section-title animate-on-scroll">Recent Notes</h2>
+                <div class="notes-preview-grid">
+                    <div class="note-preview-card stagger-item">
+                        <div class="note-preview-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="note-preview-content">
+                            <h4>Calculus Chapter 3</h4>
+                            <p>Mathematics</p>
+                            <span class="note-date">2 days ago</span>
+                        </div>
+                    </div>
+                    <div class="note-preview-card stagger-item">
+                        <div class="note-preview-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="note-preview-content">
+                            <h4>Physics Lab Report</h4>
+                            <p>Physics</p>
+                            <span class="note-date">5 days ago</span>
+                        </div>
+                    </div>
+                    <div class="note-preview-card stagger-item">
+                        <div class="note-preview-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="note-preview-content">
+                            <h4>Chemistry Notes</h4>
+                            <p>Chemistry</p>
+                            <span class="note-date">1 week ago</span>
+                        </div>
+                    </div>
+                    <div class="note-preview-card stagger-item">
+                        <div class="note-preview-icon">
+                            <i class="fas fa-file-image"></i>
+                        </div>
+                        <div class="note-preview-content">
+                            <h4>CS Algorithms</h4>
+                            <p>Computer Science</p>
+                            <span class="note-date">2 weeks ago</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Group Collaboration - Smart Learn</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span class="logo-text">Smart Learn</span>
+            </div>
+            <button class="sidebar-close-btn" id="sidebarToggle">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item" title="Dashboard">
+                <i class="fas fa-home"></i>
+                <span class="nav-text">Dashboard</span>
+            </a>
+            <a href="notes.html" class="nav-item" title="Notes & Books">
+                <i class="fas fa-book"></i>
+                <span class="nav-text">Notes & Books</span>
+            </a>
+            <a href="discussion.html" class="nav-item" title="Discussion Rooms">
+                <i class="fas fa-comments"></i>
+                <span class="nav-text">Discussion Rooms</span>
+            </a>
+            <a href="ai-helper.html" class="nav-item" title="AI Helper">
+                <i class="fas fa-robot"></i>
+                <span class="nav-text">AI Helper</span>
+            </a>
+            <a href="deadlines.html" class="nav-item" title="Deadlines">
+                <i class="fas fa-bell"></i>
+                <span class="nav-text">Deadlines</span>
+            </a>
+            <a href="exam-prediction.html" class="nav-item" title="Exam Prediction">
+                <i class="fas fa-chart-line"></i>
+                <span class="nav-text">Exam Prediction</span>
+            </a>
+            <a href="collaboration.html" class="nav-item active" title="Study Group">
+                <i class="fas fa-users"></i>
+                <span class="nav-text">Study Group</span>
+            </a>
+            <a href="profile.html" class="nav-item" title="Profile">
+                <i class="fas fa-user"></i>
+                <span class="nav-text">Profile</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="index.html" class="nav-item" title="Logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span class="nav-text">Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="search-box ai-search-box">
+                    <i class="fas fa-robot"></i>
+                    <input type="text" placeholder="Ask AI or search in study group...">
+                    <button class="ai-search-btn" title="AI Search">
+                        <i class="fas fa-magic"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="topbar-right">
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+                <div class="user-menu">
+                    <img src="https://ui-avatars.com/api/?name=Student&background=6366f1&color=fff" alt="User" class="user-avatar">
+                    <span class="user-name">Student</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Collaboration Content -->
+        <div class="page-content">
+            <div class="page-header">
+                <div>
+                    <h1>Study Group Collaboration</h1>
+                    <p>Share, learn, and collaborate with your classmates in real-time</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" id="createGroupBtn">
+                        <i class="fas fa-plus"></i>
+                        Create Group
+                    </button>
+                    <button class="btn btn-primary" id="shareContentBtn">
+                        <i class="fas fa-share"></i>
+                        Share Content
+                    </button>
+                </div>
+            </div>
+
+            <!-- Group Info -->
+            <section class="group-info animate-on-scroll">
+                <div class="group-header-card">
+                    <div class="group-avatar">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="group-details">
+                        <h2>Computer Science Study Group</h2>
+                        <p class="group-description">A collaborative space for CS students to share notes, solve problems, and learn together</p>
+                        <div class="group-meta">
+                            <span><i class="fas fa-users"></i> 24 Members</span>
+                            <span><i class="fas fa-file"></i> 15 Shared Notes</span>
+                            <span><i class="fas fa-question-circle"></i> 8 Questions</span>
+                        </div>
+                    </div>
+                    <div class="group-actions">
+                        <button class="btn btn-sm btn-primary">
+                            <i class="fas fa-user-plus"></i>
+                            Invite
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Content Tabs -->
+            <div class="collab-tabs">
+                <button class="collab-tab active" data-tab="feed">
+                    <i class="fas fa-stream"></i> Feed
+                </button>
+                <button class="collab-tab" data-tab="notes">
+                    <i class="fas fa-book"></i> Shared Notes
+                </button>
+                <button class="collab-tab" data-tab="summaries">
+                    <i class="fas fa-file-alt"></i> Summaries
+                </button>
+                <button class="collab-tab" data-tab="questions">
+                    <i class="fas fa-question-circle"></i> Questions
+                </button>
+                <button class="collab-tab" data-tab="members">
+                    <i class="fas fa-users"></i> Members
+                </button>
+            </div>
+
+            <!-- Feed Tab -->
+            <div class="collab-tab-content active" id="feedTab">
+                <div class="feed-container">
+                    <!-- Share Note Post -->
+                    <div class="feed-post stagger-item">
+                        <div class="post-header">
+                            <img src="https://ui-avatars.com/api/?name=Sarah+Ali&background=8b5cf6&color=fff" alt="User" class="post-avatar">
+                            <div class="post-author">
+                                <h4>Sarah Ali</h4>
+                                <span class="post-time">2 hours ago</span>
+                            </div>
+                            <div class="post-type-badge note">
+                                <i class="fas fa-book"></i> Note
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <h3>Calculus Chapter 5 Summary</h3>
+                            <p>I've created a comprehensive summary of Chapter 5 covering derivatives and their applications. Check it out!</p>
+                            <div class="post-attachment">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>Calculus_Chapter5_Summary.pdf</span>
+                                <button class="btn btn-sm">Download</button>
+                            </div>
+                        </div>
+                        <div class="post-actions">
+                            <button class="action-btn like-btn" data-likes="12">
+                                <i class="far fa-heart"></i>
+                                <span>12</span>
+                            </button>
+                            <button class="action-btn comment-btn">
+                                <i class="far fa-comment"></i>
+                                <span>5</span>
+                            </button>
+                            <button class="action-btn share-btn">
+                                <i class="fas fa-share"></i>
+                                Share
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Question Post -->
+                    <div class="feed-post stagger-item">
+                        <div class="post-header">
+                            <img src="https://ui-avatars.com/api/?name=Ahmed+Khan&background=ec4899&color=fff" alt="User" class="post-avatar">
+                            <div class="post-author">
+                                <h4>Ahmed Khan</h4>
+                                <span class="post-time">5 hours ago</span>
+                            </div>
+                            <div class="post-type-badge question">
+                                <i class="fas fa-question-circle"></i> Question
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <h3>How to solve this integration problem?</h3>
+                            <p>Can someone help me understand how to solve ∫(x² + 3x + 2)dx? I'm stuck on this problem.</p>
+                            <div class="question-image">
+                                <img src="https://via.placeholder.com/400x200/6366f1/ffffff?text=Math+Problem" alt="Question">
+                            </div>
+                        </div>
+                        <div class="answers-section">
+                            <h4>Answers (3)</h4>
+                            <div class="answer-item">
+                                <div class="answer-header">
+                                    <img src="https://ui-avatars.com/api/?name=Maria+Ahmed&background=10b981&color=fff" alt="User" class="answer-avatar">
+                                    <div class="answer-author">
+                                        <h5>Maria Ahmed</h5>
+                                        <span>3 hours ago</span>
+                                    </div>
+                                    <div class="answer-votes">
+                                        <button class="vote-btn upvote" data-votes="8">
+                                            <i class="fas fa-arrow-up"></i>
+                                            <span>8</span>
+                                        </button>
+                                        <button class="vote-btn downvote">
+                                            <i class="fas fa-arrow-down"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="answer-content">
+                                    <p>To solve ∫(x² + 3x + 2)dx, you need to integrate each term separately:</p>
+                                    <p>∫x²dx + ∫3xdx + ∫2dx = (x³/3) + (3x²/2) + 2x + C</p>
+                                </div>
+                            </div>
+                            <div class="answer-item best-answer">
+                                <div class="answer-header">
+                                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=6366f1&color=fff" alt="User" class="answer-avatar">
+                                    <div class="answer-author">
+                                        <h5>John Doe <span class="best-badge">Best Answer</span></h5>
+                                        <span>4 hours ago</span>
+                                    </div>
+                                    <div class="answer-votes">
+                                        <button class="vote-btn upvote" data-votes="15">
+                                            <i class="fas fa-arrow-up"></i>
+                                            <span>15</span>
+                                        </button>
+                                        <button class="vote-btn downvote">
+                                            <i class="fas fa-arrow-down"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="answer-content">
+                                    <p>Here's a detailed step-by-step solution with explanation...</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-actions">
+                            <button class="action-btn like-btn" data-likes="8">
+                                <i class="far fa-heart"></i>
+                                <span>8</span>
+                            </button>
+                            <button class="action-btn comment-btn">
+                                <i class="far fa-comment"></i>
+                                <span>3</span>
+                            </button>
+                            <button class="action-btn answer-btn">
+                                <i class="fas fa-pen"></i>
+                                Answer
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Summary Post -->
+                    <div class="feed-post stagger-item">
+                        <div class="post-header">
+                            <img src="https://ui-avatars.com/api/?name=Emma+Wilson&background=f59e0b&color=fff" alt="User" class="post-avatar">
+                            <div class="post-author">
+                                <h4>Emma Wilson</h4>
+                                <span class="post-time">1 day ago</span>
+                            </div>
+                            <div class="post-type-badge summary">
+                                <i class="fas fa-file-alt"></i> Summary
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <h3>Physics Chapter 3 - Thermodynamics Summary</h3>
+                            <p>Key points from today's lecture on thermodynamics:</p>
+                            <ul class="summary-list">
+                                <li>First Law of Thermodynamics: Energy conservation</li>
+                                <li>Second Law: Entropy always increases</li>
+                                <li>Heat engines and efficiency calculations</li>
+                                <li>Important formulas and examples</li>
+                            </ul>
+                        </div>
+                        <div class="post-actions">
+                            <button class="action-btn like-btn" data-likes="20">
+                                <i class="far fa-heart"></i>
+                                <span>20</span>
+                            </button>
+                            <button class="action-btn comment-btn">
+                                <i class="far fa-comment"></i>
+                                <span>7</span>
+                            </button>
+                            <button class="action-btn share-btn">
+                                <i class="fas fa-share"></i>
+                                Share
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shared Notes Tab -->
+            <div class="collab-tab-content" id="notesTab">
+                <div class="shared-notes-grid">
+                    <div class="shared-note-card stagger-item">
+                        <div class="note-header">
+                            <div class="note-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="note-info">
+                                <h3>Calculus Chapter 5 Summary</h3>
+                                <p>Shared by Sarah Ali • 2 hours ago</p>
+                            </div>
+                        </div>
+                        <p class="note-description">Comprehensive summary of derivatives and applications</p>
+                        <div class="note-stats">
+                            <span><i class="far fa-heart"></i> 12</span>
+                            <span><i class="far fa-comment"></i> 5</span>
+                            <span><i class="fas fa-download"></i> 8</span>
+                        </div>
+                        <div class="note-actions">
+                            <button class="btn btn-sm btn-primary">View</button>
+                            <button class="btn btn-sm btn-secondary">Download</button>
+                        </div>
+                    </div>
+
+                    <div class="shared-note-card stagger-item">
+                        <div class="note-header">
+                            <div class="note-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="note-info">
+                                <h3>Data Structures Cheat Sheet</h3>
+                                <p>Shared by Ahmed Khan • 1 day ago</p>
+                            </div>
+                        </div>
+                        <p class="note-description">Quick reference guide for common data structures</p>
+                        <div class="note-stats">
+                            <span><i class="far fa-heart"></i> 25</span>
+                            <span><i class="far fa-comment"></i> 10</span>
+                            <span><i class="fas fa-download"></i> 15</span>
+                        </div>
+                        <div class="note-actions">
+                            <button class="btn btn-sm btn-primary">View</button>
+                            <button class="btn btn-sm btn-secondary">Download</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summaries Tab -->
+            <div class="collab-tab-content" id="summariesTab">
+                <div class="summaries-list">
+                    <div class="summary-card stagger-item">
+                        <div class="summary-header">
+                            <img src="https://ui-avatars.com/api/?name=Emma+Wilson&background=f59e0b&color=fff" alt="User" class="summary-avatar">
+                            <div class="summary-author">
+                                <h4>Emma Wilson</h4>
+                                <span>1 day ago</span>
+                            </div>
+                        </div>
+                        <h3>Physics Chapter 3 - Thermodynamics</h3>
+                        <div class="summary-content">
+                            <ul>
+                                <li>First Law of Thermodynamics: Energy conservation</li>
+                                <li>Second Law: Entropy always increases</li>
+                                <li>Heat engines and efficiency calculations</li>
+                            </ul>
+                        </div>
+                        <div class="summary-actions">
+                            <button class="action-btn like-btn" data-likes="20">
+                                <i class="far fa-heart"></i>
+                                <span>20</span>
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-bookmark"></i>
+                                Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Questions Tab -->
+            <div class="collab-tab-content" id="questionsTab">
+                <div class="questions-list">
+                    <div class="question-card stagger-item">
+                        <div class="question-header">
+                            <img src="https://ui-avatars.com/api/?name=Ahmed+Khan&background=ec4899&color=fff" alt="User" class="question-avatar">
+                            <div class="question-author">
+                                <h4>Ahmed Khan</h4>
+                                <span>5 hours ago</span>
+                            </div>
+                            <span class="question-status answered">Answered</span>
+                        </div>
+                        <h3>How to solve this integration problem?</h3>
+                        <p>Can someone help me understand how to solve ∫(x² + 3x + 2)dx?</p>
+                        <div class="question-meta">
+                            <span><i class="fas fa-comments"></i> 3 Answers</span>
+                            <span><i class="far fa-heart"></i> 8 Likes</span>
+                        </div>
+                        <div class="question-actions">
+                            <button class="btn btn-sm btn-primary">View Answers</button>
+                            <button class="btn btn-sm btn-secondary">Answer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Members Tab -->
+            <div class="collab-tab-content" id="membersTab">
+                <div class="members-grid">
+                    <div class="member-card stagger-item">
+                        <img src="https://ui-avatars.com/api/?name=John+Doe&background=6366f1&color=fff" alt="Member" class="member-avatar">
+                        <h4>John Doe</h4>
+                        <p class="member-role">Group Admin</p>
+                        <div class="member-stats">
+                            <span>12 Notes</span>
+                            <span>5 Answers</span>
+                        </div>
+                    </div>
+                    <div class="member-card stagger-item">
+                        <img src="https://ui-avatars.com/api/?name=Sarah+Ali&background=8b5cf6&color=fff" alt="Member" class="member-avatar">
+                        <h4>Sarah Ali</h4>
+                        <p class="member-role">Member</p>
+                        <div class="member-stats">
+                            <span>8 Notes</span>
+                            <span>3 Answers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Share Content Modal -->
+    <div class="modal" id="shareContentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Share Content</h2>
+                <button class="modal-close" id="closeShareModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="share-tabs">
+                    <button class="share-tab active" data-share="note">
+                        <i class="fas fa-book"></i> Note
+                    </button>
+                    <button class="share-tab" data-share="summary">
+                        <i class="fas fa-file-alt"></i> Summary
+                    </button>
+                    <button class="share-tab" data-share="question">
+                        <i class="fas fa-question-circle"></i> Question
+                    </button>
+                </div>
+
+                <form id="shareContentForm">
+                    <div class="share-tab-content active" id="noteShareTab">
+                        <div class="form-group">
+                            <label for="shareNoteTitle">Note Title</label>
+                            <input type="text" id="shareNoteTitle" class="form-control" placeholder="Enter note title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="shareNoteFile">Upload Note</label>
+                            <div class="upload-area" id="shareNoteUpload">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag and drop file or click to browse</p>
+                                <input type="file" id="shareNoteFile" accept=".pdf,.doc,.docx">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="shareNoteDescription">Description</label>
+                            <textarea id="shareNoteDescription" class="form-control" rows="3" placeholder="Add a description..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="share-tab-content" id="summaryShareTab">
+                        <div class="form-group">
+                            <label for="summaryTitle">Summary Title</label>
+                            <input type="text" id="summaryTitle" class="form-control" placeholder="e.g., Chapter 3 Summary" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="summaryContent">Summary Content</label>
+                            <textarea id="summaryContent" class="form-control" rows="8" placeholder="Write your summary here..." required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="share-tab-content" id="questionShareTab">
+                        <div class="form-group">
+                            <label for="questionTitle">Question</label>
+                            <input type="text" id="questionTitle" class="form-control" placeholder="Enter your question" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="questionDetails">Question Details</label>
+                            <textarea id="questionDetails" class="form-control" rows="5" placeholder="Provide more details about your question..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="questionImage">Attach Image (Optional)</label>
+                            <div class="upload-area" id="questionImageUpload">
+                                <i class="fas fa-image"></i>
+                                <p>Upload image of the problem</p>
+                                <input type="file" id="questionImage" accept="image/*">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancelShare">Cancel</button>
+                <button type="submit" form="shareContentForm" class="btn btn-primary">Share</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/collaboration.js"></script>
+</body>
+</html>
+

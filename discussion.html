@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discussion Rooms - Smart Learn</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/invite.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span class="logo-text">Smart Learn</span>
+            </div>
+            <button class="sidebar-close-btn" id="sidebarToggle">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item" title="Dashboard">
+                <i class="fas fa-home"></i>
+                <span class="nav-text">Dashboard</span>
+            </a>
+            <a href="notes.html" class="nav-item" title="Notes & Books">
+                <i class="fas fa-book"></i>
+                <span class="nav-text">Notes & Books</span>
+            </a>
+            <a href="discussion.html" class="nav-item active" title="Discussion Rooms">
+                <i class="fas fa-comments"></i>
+                <span class="nav-text">Discussion Rooms</span>
+            </a>
+            <a href="ai-helper.html" class="nav-item" title="AI Helper">
+                <i class="fas fa-robot"></i>
+                <span class="nav-text">AI Helper</span>
+            </a>
+            <a href="deadlines.html" class="nav-item" title="Deadlines">
+                <i class="fas fa-bell"></i>
+                <span class="nav-text">Deadlines</span>
+            </a>
+            <a href="exam-prediction.html" class="nav-item" title="Exam Prediction">
+                <i class="fas fa-chart-line"></i>
+                <span class="nav-text">Exam Prediction</span>
+            </a>
+            <a href="collaboration.html" class="nav-item" title="Study Group">
+                <i class="fas fa-users"></i>
+                <span class="nav-text">Study Group</span>
+            </a>
+            <a href="profile.html" class="nav-item" title="Profile">
+                <i class="fas fa-user"></i>
+                <span class="nav-text">Profile</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="index.html" class="nav-item">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="search-box ai-search-box">
+                    <i class="fas fa-robot"></i>
+                    <input type="text" id="roomSearch" placeholder="Ask AI or search discussion rooms...">
+                    <button class="ai-search-btn" title="AI Search">
+                        <i class="fas fa-magic"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="topbar-right">
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+                <div class="user-menu">
+                    <img src="https://ui-avatars.com/api/?name=Student&background=6366f1&color=fff" alt="User" class="user-avatar">
+                    <span class="user-name">Student</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Discussion Content -->
+        <div class="page-content">
+            <div class="page-header">
+                <div>
+                    <h1>Discussion Rooms</h1>
+                    <p>Collaborate and learn together</p>
+                </div>
+                <button class="btn btn-primary" id="createRoomBtn">
+                    <i class="fas fa-plus"></i>
+                    Create Room
+                </button>
+            </div>
+
+            <!-- Active Rooms -->
+            <section class="rooms-section">
+                <h2 class="section-title">My Rooms</h2>
+                <div class="rooms-grid">
+                    <div class="room-card">
+                        <div class="room-header">
+                            <div class="room-icon">
+                                <i class="fas fa-atom"></i>
+                            </div>
+                            <div class="room-info">
+                                <h3>Physics Discussion</h3>
+                                <p class="room-meta">
+                                    <span><i class="fas fa-users"></i> 24 members</span>
+                                    <span><i class="fas fa-comment"></i> 156 messages</span>
+                                </p>
+                            </div>
+                        </div>
+                        <p class="room-description">Discuss quantum mechanics, thermodynamics, and more physics topics.</p>
+                        <div class="room-footer">
+                            <span class="room-tag">Physics</span>
+                            <div class="room-actions">
+                                <button class="btn btn-sm btn-primary">Join</button>
+                                <button class="btn btn-sm btn-secondary invite-btn" data-room="Physics Discussion">
+                                    <i class="fas fa-user-plus"></i>
+                                    Invite
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="room-card">
+                        <div class="room-header">
+                            <div class="room-icon">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <div class="room-info">
+                                <h3>Mathematics Help</h3>
+                                <p class="room-meta">
+                                    <span><i class="fas fa-users"></i> 18 members</span>
+                                    <span><i class="fas fa-comment"></i> 89 messages</span>
+                                </p>
+                            </div>
+                        </div>
+                        <p class="room-description">Get help with calculus, algebra, and other math problems.</p>
+                        <div class="room-footer">
+                            <span class="room-tag">Mathematics</span>
+                            <div class="room-actions">
+                                <button class="btn btn-sm btn-primary">Join</button>
+                                <button class="btn btn-sm btn-secondary invite-btn" data-room="Mathematics Help">
+                                    <i class="fas fa-user-plus"></i>
+                                    Invite
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="room-card">
+                        <div class="room-header">
+                            <div class="room-icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <div class="room-info">
+                                <h3>Chemistry Lab</h3>
+                                <p class="room-meta">
+                                    <span><i class="fas fa-users"></i> 15 members</span>
+                                    <span><i class="fas fa-comment"></i> 67 messages</span>
+                                </p>
+                            </div>
+                        </div>
+                        <p class="room-description">Share lab results and discuss chemistry experiments.</p>
+                        <div class="room-footer">
+                            <span class="room-tag">Chemistry</span>
+                            <div class="room-actions">
+                                <button class="btn btn-sm btn-primary">Join</button>
+                                <button class="btn btn-sm btn-secondary invite-btn" data-room="Chemistry Lab">
+                                    <i class="fas fa-user-plus"></i>
+                                    Invite
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Available Rooms -->
+            <section class="rooms-section">
+                <h2 class="section-title">Available Rooms</h2>
+                <div class="rooms-grid">
+                    <div class="room-card">
+                        <div class="room-header">
+                            <div class="room-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="room-info">
+                                <h3>CS Algorithms</h3>
+                                <p class="room-meta">
+                                    <span><i class="fas fa-users"></i> 32 members</span>
+                                    <span><i class="fas fa-comment"></i> 203 messages</span>
+                                </p>
+                            </div>
+                        </div>
+                        <p class="room-description">Discuss data structures, algorithms, and programming challenges.</p>
+                        <div class="room-footer">
+                            <span class="room-tag">Computer Science</span>
+                            <div class="room-actions">
+                                <button class="btn btn-sm btn-outline">Join</button>
+                                <button class="btn btn-sm btn-secondary invite-btn" data-room="CS Algorithms">
+                                    <i class="fas fa-user-plus"></i>
+                                    Invite
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="room-card">
+                        <div class="room-header">
+                            <div class="room-icon">
+                                <i class="fas fa-book-reader"></i>
+                            </div>
+                            <div class="room-info">
+                                <h3>English Literature</h3>
+                                <p class="room-meta">
+                                    <span><i class="fas fa-users"></i> 12 members</span>
+                                    <span><i class="fas fa-comment"></i> 45 messages</span>
+                                </p>
+                            </div>
+                        </div>
+                        <p class="room-description">Analyze literature, discuss themes, and share insights.</p>
+                        <div class="room-footer">
+                            <span class="room-tag">English</span>
+                            <div class="room-actions">
+                                <button class="btn btn-sm btn-outline">Join</button>
+                                <button class="btn btn-sm btn-secondary invite-btn" data-room="English Literature">
+                                    <i class="fas fa-user-plus"></i>
+                                    Invite
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="room-card">
+                        <div class="room-header">
+                            <div class="room-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div class="room-info">
+                                <h3>Statistics Study Group</h3>
+                                <p class="room-meta">
+                                    <span><i class="fas fa-users"></i> 20 members</span>
+                                    <span><i class="fas fa-comment"></i> 78 messages</span>
+                                </p>
+                            </div>
+                        </div>
+                        <p class="room-description">Study statistics, probability, and data analysis together.</p>
+                        <div class="room-footer">
+                            <span class="room-tag">Mathematics</span>
+                            <div class="room-actions">
+                                <button class="btn btn-sm btn-outline">Join</button>
+                                <button class="btn btn-sm btn-secondary invite-btn" data-room="Statistics Study Group">
+                                    <i class="fas fa-user-plus"></i>
+                                    Invite
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Invite Students Modal -->
+    <div class="modal" id="inviteModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Invite Students</h2>
+                <button class="modal-close" id="closeInviteModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="invite-tabs">
+                    <button class="invite-tab active" data-tab="email">Email Invitation</button>
+                    <button class="invite-tab" data-tab="link">Share Link</button>
+                </div>
+                
+                <div class="invite-tab-content active" id="emailTab">
+                    <form id="inviteEmailForm">
+                        <div class="form-group">
+                            <label for="inviteEmails">Email Addresses</label>
+                            <textarea id="inviteEmails" class="form-control" rows="4" placeholder="Enter email addresses separated by commas&#10;Example: student1@example.com, student2@example.com" required></textarea>
+                            <small class="form-hint">Separate multiple emails with commas</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="inviteMessage">Personal Message (Optional)</label>
+                            <textarea id="inviteMessage" class="form-control" rows="3" placeholder="Add a personal message to your invitation"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Invitations
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="invite-tab-content" id="linkTab">
+                    <div class="link-share-section">
+                        <div class="form-group">
+                            <label for="roomLink">Room Link</label>
+                            <div class="link-input-group">
+                                <input type="text" id="roomLink" class="form-control" value="https://smartlearn.com/room/physics-discussion" readonly>
+                                <button class="btn btn-secondary" id="copyLinkBtn">
+                                    <i class="fas fa-copy"></i>
+                                    Copy
+                                </button>
+                            </div>
+                        </div>
+                        <div class="share-options">
+                            <h4>Share via:</h4>
+                            <div class="share-buttons">
+                                <button class="share-btn email-share" title="Email">
+                                    <i class="fas fa-envelope"></i>
+                                    Email
+                                </button>
+                                <button class="share-btn whatsapp-share" title="WhatsApp">
+                                    <i class="fab fa-whatsapp"></i>
+                                    WhatsApp
+                                </button>
+                                <button class="share-btn facebook-share" title="Facebook">
+                                    <i class="fab fa-facebook"></i>
+                                    Facebook
+                                </button>
+                                <button class="share-btn twitter-share" title="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                    Twitter
+                                </button>
+                                <button class="share-btn linkedin-share" title="LinkedIn">
+                                    <i class="fab fa-linkedin"></i>
+                                    LinkedIn
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Room Modal -->
+    <div class="modal" id="createRoomModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create Discussion Room</h2>
+                <button class="modal-close" id="closeRoomModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="createRoomForm">
+                    <div class="form-group">
+                        <label for="roomName">Room Name</label>
+                        <input type="text" id="roomName" class="form-control" placeholder="Enter room name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="roomSubject">Subject</label>
+                        <select id="roomSubject" class="form-control" required>
+                            <option value="">Select Subject</option>
+                            <option value="math">Mathematics</option>
+                            <option value="physics">Physics</option>
+                            <option value="chemistry">Chemistry</option>
+                            <option value="cs">Computer Science</option>
+                            <option value="english">English</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="roomDescription">Description</label>
+                        <textarea id="roomDescription" class="form-control" rows="4" placeholder="Describe the purpose of this room" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="roomPrivacy">Privacy</label>
+                        <select id="roomPrivacy" class="form-control">
+                            <option value="public">Public - Anyone can join</option>
+                            <option value="private">Private - Invite only</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancelRoom">Cancel</button>
+                <button type="submit" form="createRoomForm" class="btn btn-primary">Create Room</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/discussion.js"></script>
+    <script src="js/invite.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
+

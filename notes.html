@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes & Books - Smart Learn</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span class="logo-text">Smart Learn</span>
+            </div>
+            <button class="sidebar-close-btn" id="sidebarToggle">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item" title="Dashboard">
+                <i class="fas fa-home"></i>
+                <span class="nav-text">Dashboard</span>
+            </a>
+            <a href="notes.html" class="nav-item active" title="Notes & Books">
+                <i class="fas fa-book"></i>
+                <span class="nav-text">Notes & Books</span>
+            </a>
+            <a href="discussion.html" class="nav-item" title="Discussion Rooms">
+                <i class="fas fa-comments"></i>
+                <span class="nav-text">Discussion Rooms</span>
+            </a>
+            <a href="ai-helper.html" class="nav-item" title="AI Helper">
+                <i class="fas fa-robot"></i>
+                <span class="nav-text">AI Helper</span>
+            </a>
+            <a href="deadlines.html" class="nav-item" title="Deadlines">
+                <i class="fas fa-bell"></i>
+                <span class="nav-text">Deadlines</span>
+            </a>
+            <a href="exam-prediction.html" class="nav-item" title="Exam Prediction">
+                <i class="fas fa-chart-line"></i>
+                <span class="nav-text">Exam Prediction</span>
+            </a>
+            <a href="collaboration.html" class="nav-item" title="Study Group">
+                <i class="fas fa-users"></i>
+                <span class="nav-text">Study Group</span>
+            </a>
+            <a href="profile.html" class="nav-item" title="Profile">
+                <i class="fas fa-user"></i>
+                <span class="nav-text">Profile</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="index.html" class="nav-item" title="Logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span class="nav-text">Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="search-box ai-search-box">
+                    <i class="fas fa-robot"></i>
+                    <input type="text" id="notesSearch" placeholder="Ask AI or search notes and books...">
+                    <button class="ai-search-btn" title="AI Search">
+                        <i class="fas fa-magic"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="topbar-right">
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+                <div class="user-menu">
+                    <img src="https://ui-avatars.com/api/?name=Student&background=6366f1&color=fff" alt="User" class="user-avatar">
+                    <span class="user-name">Student</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Notes Content -->
+        <div class="page-content">
+            <div class="page-header">
+                <div>
+                    <h1>Notes & Books</h1>
+                    <p>Manage and organize your study materials</p>
+                </div>
+                <button class="btn btn-primary" id="uploadBtn">
+                    <i class="fas fa-upload"></i>
+                    Upload File
+                </button>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters-bar animate-on-scroll">
+                <div class="filter-group">
+                    <label>Subject:</label>
+                    <select id="subjectFilter" class="filter-select">
+                        <option value="all">All Subjects</option>
+                        <option value="math">Mathematics</option>
+                        <option value="physics">Physics</option>
+                        <option value="chemistry">Chemistry</option>
+                        <option value="cs">Computer Science</option>
+                        <option value="english">English</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Type:</label>
+                    <select id="typeFilter" class="filter-select">
+                        <option value="all">All Types</option>
+                        <option value="notes">Notes</option>
+                        <option value="book">Book</option>
+                        <option value="pdf">PDF</option>
+                        <option value="image">Image</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Sort:</label>
+                    <select id="sortFilter" class="filter-select">
+                        <option value="recent">Most Recent</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="name">Name (A-Z)</option>
+                        <option value="size">Size</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Notes Grid -->
+            <div class="notes-grid" id="notesGrid">
+                <div class="note-card stagger-item">
+                    <div class="note-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="note-content">
+                        <h3>Mathematics Notes - Chapter 5</h3>
+                        <p class="note-meta">
+                            <span><i class="fas fa-tag"></i> Mathematics</span>
+                            <span><i class="fas fa-calendar"></i> 2 days ago</span>
+                        </p>
+                        <p class="note-size">2.4 MB</p>
+                    </div>
+                    <div class="note-actions">
+                        <button class="action-btn" title="Download">
+                            <i class="fas fa-download"></i>
+                        </button>
+                        <button class="action-btn" title="Share">
+                            <i class="fas fa-share"></i>
+                        </button>
+                        <button class="action-btn" title="Delete">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="note-card stagger-item">
+                    <div class="note-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="note-content">
+                        <h3>Physics Textbook - Volume 2</h3>
+                        <p class="note-meta">
+                            <span><i class="fas fa-tag"></i> Physics</span>
+                            <span><i class="fas fa-calendar"></i> 1 week ago</span>
+                        </p>
+                        <p class="note-size">15.8 MB</p>
+                    </div>
+                    <div class="note-actions">
+                        <button class="action-btn" title="Download">
+                            <i class="fas fa-download"></i>
+                        </button>
+                        <button class="action-btn" title="Share">
+                            <i class="fas fa-share"></i>
+                        </button>
+                        <button class="action-btn" title="Delete">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="note-card stagger-item">
+                    <div class="note-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="note-content">
+                        <h3>Chemistry Lab Report</h3>
+                        <p class="note-meta">
+                            <span><i class="fas fa-tag"></i> Chemistry</span>
+                            <span><i class="fas fa-calendar"></i> 3 days ago</span>
+                        </p>
+                        <p class="note-size">1.2 MB</p>
+                    </div>
+                    <div class="note-actions">
+                        <button class="action-btn" title="Download">
+                            <i class="fas fa-download"></i>
+                        </button>
+                        <button class="action-btn" title="Share">
+                            <i class="fas fa-share"></i>
+                        </button>
+                        <button class="action-btn" title="Delete">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="note-card stagger-item">
+                    <div class="note-icon">
+                        <i class="fas fa-file-image"></i>
+                    </div>
+                    <div class="note-content">
+                        <h3>CS Algorithms Diagram</h3>
+                        <p class="note-meta">
+                            <span><i class="fas fa-tag"></i> Computer Science</span>
+                            <span><i class="fas fa-calendar"></i> 5 days ago</span>
+                        </p>
+                        <p class="note-size">856 KB</p>
+                    </div>
+                    <div class="note-actions">
+                        <button class="action-btn" title="Download">
+                            <i class="fas fa-download"></i>
+                        </button>
+                        <button class="action-btn" title="Share">
+                            <i class="fas fa-share"></i>
+                        </button>
+                        <button class="action-btn" title="Delete">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="note-card stagger-item">
+                    <div class="note-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="note-content">
+                        <h3>English Literature Notes</h3>
+                        <p class="note-meta">
+                            <span><i class="fas fa-tag"></i> English</span>
+                            <span><i class="fas fa-calendar"></i> 1 week ago</span>
+                        </p>
+                        <p class="note-size">3.1 MB</p>
+                    </div>
+                    <div class="note-actions">
+                        <button class="action-btn" title="Download">
+                            <i class="fas fa-download"></i>
+                        </button>
+                        <button class="action-btn" title="Share">
+                            <i class="fas fa-share"></i>
+                        </button>
+                        <button class="action-btn" title="Delete">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="note-card stagger-item">
+                    <div class="note-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="note-content">
+                        <h3>Calculus Study Guide</h3>
+                        <p class="note-meta">
+                            <span><i class="fas fa-tag"></i> Mathematics</span>
+                            <span><i class="fas fa-calendar"></i> 4 days ago</span>
+                        </p>
+                        <p class="note-size">5.7 MB</p>
+                    </div>
+                    <div class="note-actions">
+                        <button class="action-btn" title="Download">
+                            <i class="fas fa-download"></i>
+                        </button>
+                        <button class="action-btn" title="Share">
+                            <i class="fas fa-share"></i>
+                        </button>
+                        <button class="action-btn" title="Delete">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Upload Modal -->
+    <div class="modal" id="uploadModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Upload File</h2>
+                <button class="modal-close" id="closeUploadModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="uploadForm">
+                    <div class="upload-area" id="uploadArea">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag and drop files here or click to browse</p>
+                        <input type="file" id="fileInput" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.txt">
+                    </div>
+                    <div class="form-group">
+                        <label for="fileSubject">Subject</label>
+                        <select id="fileSubject" class="form-control" required>
+                            <option value="">Select Subject</option>
+                            <option value="math">Mathematics</option>
+                            <option value="physics">Physics</option>
+                            <option value="chemistry">Chemistry</option>
+                            <option value="cs">Computer Science</option>
+                            <option value="english">English</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="fileTitle">Title</label>
+                        <input type="text" id="fileTitle" class="form-control" placeholder="Enter file title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fileDescription">Description (Optional)</label>
+                        <textarea id="fileDescription" class="form-control" rows="3" placeholder="Add a description"></textarea>
+                    </div>
+                    <div class="uploaded-files" id="uploadedFiles"></div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancelUpload">Cancel</button>
+                <button type="submit" form="uploadForm" class="btn btn-primary">Upload</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/notes.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,129 @@
+/* ===== Invite Students Styles ===== */
+
+.invite-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.invite-tab {
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: var(--transition);
+    position: relative;
+    bottom: -2px;
+}
+
+.invite-tab:hover {
+    color: var(--primary-color);
+    background: rgba(99, 102, 241, 0.05);
+}
+
+.invite-tab.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+    background: rgba(99, 102, 241, 0.05);
+}
+
+.invite-tab-content {
+    display: none;
+}
+
+.invite-tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.form-hint {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.link-input-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.link-input-group input {
+    flex: 1;
+}
+
+.share-options {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.share-options h4 {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.share-buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.share-btn {
+    padding: 0.75rem 1.25rem;
+    border: 2px solid var(--border-color);
+    background: var(--light-surface);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.email-share:hover {
+    background: #ea4335;
+    color: white;
+    border-color: #ea4335;
+}
+
+.whatsapp-share:hover {
+    background: #25d366;
+    color: white;
+    border-color: #25d366;
+}
+
+.facebook-share:hover {
+    background: #1877f2;
+    color: white;
+    border-color: #1877f2;
+}
+
+.twitter-share:hover {
+    background: #1da1f2;
+    color: white;
+    border-color: #1da1f2;
+}
+
+.linkedin-share:hover {
+    background: #0077b5;
+    color: white;
+    border-color: #0077b5;
+}
+
+.link-share-section {
+    padding: 1rem 0;
+}
+
